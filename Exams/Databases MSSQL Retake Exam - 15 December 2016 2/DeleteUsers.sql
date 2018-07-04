@@ -1,0 +1,23 @@
+CREATE TRIGGER tr_DeleteUser ON Users FOR DELETE AS
+BEGIN 
+ ALTER TABLE Messages
+ ALTER COLUMN UserId int NULL
+
+ UPDATE Messages
+ SET UserId = NULL
+ WHERE UserId IN (SELECT Id FROM Users)
+
+ ALTER TABLE UserChats
+ ALTER COLUMN UserId int NULL
+
+ DELETE FROM UsersChats 
+ WHERE  UserId IN (SELECT Id FROM deleted)
+
+ ALTER TABLE Users
+ ALTER COLUMN CredentialId int NULL
+
+ UPDATE Users
+ SET CredentialId = NULL 
+ WHERE Id IN (SELECT Id FROM deleted)
+ 
+END

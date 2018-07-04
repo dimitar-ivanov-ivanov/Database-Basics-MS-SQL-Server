@@ -1,0 +1,2 @@
+SELECT NickName,Gender,Age FROM Users
+WHERE AGE BETWEEN 22 AND 37

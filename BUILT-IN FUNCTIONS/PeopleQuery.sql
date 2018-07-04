@@ -1,0 +1,6 @@
+SELECT Name,
+DATEDIFF(YEAR,BirthDate,GETDATE()) AS AgeInYears,
+DATEDIFF(MONTH,BirthDate,GETDATE()) AS AgeInMonths,
+DATEDIFF(DAY,BirthDate,GETDATE()) AS AgeInDays,
+DATEDIFF(MINUTE,BirthDate,GETDATE()) AS AgeInMinutes
+FROM People

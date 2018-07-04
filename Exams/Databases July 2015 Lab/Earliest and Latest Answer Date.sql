@@ -1,0 +1,1 @@
+SELECT MIN(CreatedOn) AS MinDate,MAX(CreatedOn) AS MaxDate FROM Answers
